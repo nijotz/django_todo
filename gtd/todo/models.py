@@ -31,7 +31,7 @@ class TodoItem(models.Model):
 	created_date = models.DateTimeField(default=datetime.datetime.now)
 	priority = models.IntegerField(choices=PRIORITY_CHOICES, default=2)
 	completed = models.BooleanField(default=False)
-	todo_list = models.ForeignKey(TodoList)
+	todo_lists = models.ManyToManyField(TodoList, blank=True, null=True)
 	def __str__(self):
 		return self.title
 	class Meta:
